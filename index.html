@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Website Test</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/full-slider.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Website</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li id="li_about"><a href="#about">About</a></li>
+                    <li id="li_values"><a href="#values">Values</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="up-button">
+      <div class="row" style="text-align: center">
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+        <div class="clearfix visible-xs-block-center"></div>
+        <div class="col-xs-12 col-sm-12">
+          <a id="pgup" href="#"><span class="glyphicon glyphicon-menu-up"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="down-button">
+      <div class="row" style="text-align: center">
+        <!-- Optional: clear the XS cols if their content doesn't match in height -->
+        <div class="clearfix visible-xs-block-center"></div>
+        <div class="col-xs-12 col-sm-12">
+          <a id="pgdown" href="#"><span class="glyphicon glyphicon-menu-down"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <div id="about" class="container-fluid">
+      <div class="fill" style="background-image:url('http://placehold.it/1900x1080/f48f42?text=About');">
+
+      </div>
+    </div>
+
+    <div id="values" class="container-fluid bg-grey">
+      <div class="fill" style="background-image:url('http://placehold.it/1900x1080/4fa878?text=Values');"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr>
+
+          <!-- Footer -->
+          <footer class="container-fluid text-center">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <p>Copyright &copy; Website 2017</p>
+                  </div>
+              </div>
+              <!-- /.row -->
+          </footer>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+    <script>
+
+    var aboutActive = false;
+    var valuesActive = false;
+    var values = $('#values');
+    var valuesPos = 0;
+    var about = $('#about');
+    var aboutPos = 0;
+
+    $('#pgup').hide();
+
+    $.fn.isOnScreen = function(){
+      var win = $(window);
+      var viewport = {
+          top : win.scrollTop(),
+          left : win.scrollLeft()
+      };
+      viewport.right = viewport.left + win.width();
+      viewport.bottom = viewport.top + win.height();
+
+      var bounds = this.offset();
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+
+      return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+    };
+
+    $(window).scroll(function() {
+      if ($(document).scrollTop() > 10) {
+        $('#pgup').fadeIn("slow");
+        if ($(document).scrollTop() > 2 * values.height() - 10) {
+          $('#pgdown').fadeOut("slow");
+        } else {
+          $('#pgdown').fadeIn("slow");
+        }
+      } else if ($(document).scrollTop() == 0) {
+        $('#pgup').fadeOut("slow");
+      }
+    });
+
+    $('#pgup').click(function(){
+      valuesPos = values.position();
+      aboutPos = about.position();
+      aboutActive = $('#li_about').hasClass('active');
+      valuesActive = $('#li_values').hasClass('active');
+
+      if (aboutActive) {
+        if ($('#li_values').isOnScreen() && ($(document).scrollTop() > (valuesPos.top/2))) {
+          $('#pgup').attr('href', '#about');
+        } else {
+          $('#pgup').attr('href', '#myPage');
+        }
+      } else if (valuesActive) {
+        if($('#li_values').isOnScreen() && ($(document).scrollTop() > (aboutPos.top*2))) {
+          $('#pgup').attr('href', '#values');
+        } else {
+          $('#pgup').attr('href', '#about');
+        }
+      } else if (!aboutActive && !valuesActive) {
+        if($('.carousel-inner').isOnScreen()) {
+          $('#pgup').attr('href', '#myPage');
+        }
+      }
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+
+    $('#pgdown').click(function(){
+      //var selected = $('#values');
+      //var position = selected.position();
+      aboutActive = $('#li_about').hasClass('active');
+      valuesActive = $('#li_values').hasClass('active');
+      if (aboutActive) {
+        $('#pgdown').attr('href', '#values');
+      } else if (!valuesActive && !aboutActive) {
+        $('#pgdown').attr('href', '#about');
+      }
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+
+    // Add smooth scrolling to all links in navbar + footer link
+
+
+    $(".navbar a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+
+    </script>
+
+</body>
+
+</html>
